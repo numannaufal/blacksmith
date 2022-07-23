@@ -53,8 +53,71 @@ Let's look into the Component: Table
 | ...             |
 | columnN: Column |
 +-----------------+
-| insert()        |
+| create()        |
 | update()        |
 | delete()        |
 +-----------------+
+
++-----------------+
+| Consntraint     |
++-----------------+
+
++------------------------+
+| ForeignKey Const       |
++------------------------+
+| ref: (Table -> Column) |
++------------------------+
+```
+
+```
+usage spec
+
+// use case 1: create data
+entity = new Entity()
+          .column1(value)
+          .column2(value)
+          .create()
+
+// use case 2: update data
+entity
+  .column1(updatedValue)
+  .column2(updatedValue)
+  .update()
+
+// use case 3: get data
+entity = Table(name).get(query)
+
+// use case 4: delete
+entity.delete()
+
+// use case 5: create with FK. simple way
+refEntity = new Entity().create()
+entity = new Entity()
+  .column1(value)
+  .column2(refEntity.column())
+
+// OR. abstract way
+entity = new Entity(
+    .column1(value)
+    .column2(entityValue)
+
+// inside .column2
+// bcs it is constraint
+column2(entity) {
+  id = entity.create()
+  this.column = id
+}
+
+// use case 6: get the ref 
+entity = Table(name).get(query)
+refEntity = entity.get(ref)
+refEntity.update()
+
+// OR
+
+entity = Table(name).get(query, subEntity: true)
+entity.refColumn : entity
+
+things become complex. it is a feature
+
 ```
