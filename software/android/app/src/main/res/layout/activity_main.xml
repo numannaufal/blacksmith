@@ -26,6 +26,6 @@
         tools:layout_editor_absoluteX="141dp"
         tools:layout_editor_absoluteY="168dp"
         tools:srcCompat="@tools:sample/avatars"
-        android:src="@drawable/mascot_background"
+        android:src="@drawable/mascot"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

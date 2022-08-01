@@ -15,9 +15,5 @@ class MainActivity : AppCompatActivity() {
 
         textView = findViewById(R.id.textView)
         textView.setText(R.string.app_name)
-
-
-        mascot = findViewById(R.id.imageView)
-        mascot.setImageResource(R.drawable.)
     }
 }
