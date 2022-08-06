@@ -3,4 +3,6 @@
     <string name="opening">Loading. please wait a moment...</string>
     <string name="closing">Thank you. Have a nice day!</string>
     <string name="upgrade">Upgrade</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

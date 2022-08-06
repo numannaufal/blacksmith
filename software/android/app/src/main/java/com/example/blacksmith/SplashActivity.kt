@@ -39,7 +39,6 @@ class SplashActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         val action: String = intent.getStringExtra("action").toString()
-        Log.d("berak", action)
         when (action) {
             "close" -> closing()
             else -> opening()
