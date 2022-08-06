@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -22,13 +23,12 @@ class SplashActivity : AppCompatActivity() {
 
     private fun buildViews() {
         setContentView(R.layout.activity_splash)
-        buildStatus()
         buildImage()
     }
 
-    private fun buildStatus() {
+    private fun buildStatus(stringResourceId: Int) {
         textViewTitle = findViewById(R.id.status)
-        textViewTitle.setText(R.string.loading)
+        textViewTitle.setText(stringResourceId)
     }
 
     private fun buildImage() {
@@ -38,8 +38,26 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        val action: String = intent.getStringExtra("action").toString()
+        Log.d("berak", action)
+        when (action) {
+            "close" -> closing()
+            else -> opening()
+        }
+
+    }
+
+    private fun opening() {
+        buildStatus(R.string.opening)
         Handler().postDelayed({
             goToActivity(HomeActivity::class.java)
+        }, 3000)
+    }
+
+    private fun closing() {
+        buildStatus(R.string.closing)
+        Handler().postDelayed({
+            finishAffinity()
         }, 3000)
     }
 

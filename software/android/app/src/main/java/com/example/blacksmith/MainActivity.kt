@@ -2,7 +2,6 @@ package com.example.blacksmith
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -13,18 +12,26 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-
         val status = AppSingleton.getAppStatus(this)
-        if (status == "started") {
-            AppSingleton.clearAppStatus(this)
-            finish()
-        } else {
-            goToActivity(SplashActivity::class.java)
+        when (status) {
+            "started" -> open()
+            else -> close()
         }
     }
 
-    private fun goToActivity(activityClass: Class<SplashActivity>) {
-        var intent = Intent(this, activityClass)
+    private fun open() {
+        AppSingleton.clearAppStatus(this)
+        goToActivity(SplashActivity::class.java, "close")
+    }
+
+    private fun close() {
+        goToActivity(SplashActivity::class.java, "open")
+    }
+
+    private fun goToActivity(activityClass: Class<SplashActivity>, action: String) {
+        val intent = Intent(this, activityClass).apply {
+            putExtra("action", action)
+        }
         startActivity(intent)
     }
 
