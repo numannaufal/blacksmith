@@ -15,19 +15,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        val status = AppSingleton.getAppStatus(this)
-        when (status) {
-            "started" -> open()
-            else -> close()
-        }
+        open()
     }
 
     private fun open() {
-        AppSingleton.clearAppStatus(this)
-        goToActivity(SplashActivity::class.java, "close")
-    }
-
-    private fun close() {
         goToActivity(SplashActivity::class.java, "open")
     }
 
@@ -36,10 +27,5 @@ class MainActivity : AppCompatActivity() {
             putExtra("action", action)
         }
         startActivity(intent)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        AppSingleton.clearAppStatus(this)
     }
 }

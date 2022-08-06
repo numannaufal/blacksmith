@@ -8,8 +8,4 @@ class AppService: Service() {
     override fun onBind(intent: Intent): IBinder? {
         return null
     }
-
-    override fun onDestroy() {
-        AppSingleton.clearAppStatus(this)
-    }
 }

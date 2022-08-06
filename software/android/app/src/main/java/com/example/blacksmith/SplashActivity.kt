@@ -40,8 +40,8 @@ class SplashActivity : AppCompatActivity() {
         super.onStart()
         val action: String = intent.getStringExtra("action").toString()
         when (action) {
-            "close" -> closing()
-            else -> opening()
+            "open" -> opening()
+            else -> closing()
         }
 
     }
@@ -49,6 +49,7 @@ class SplashActivity : AppCompatActivity() {
     private fun opening() {
         buildStatus(R.string.opening)
         Handler().postDelayed({
+            intent.removeExtra("action")
             goToActivity(HomeActivity::class.java)
         }, 3000)
     }
@@ -63,6 +64,5 @@ class SplashActivity : AppCompatActivity() {
     private fun goToActivity(activityClass: Class<HomeActivity>) {
         var intent = Intent(this, activityClass)
         startActivity(intent)
-        finish()
     }
 }
