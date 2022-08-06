@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.blacksmith.toolbox.Tool
+import java.util.*
 
 
 private const val TOOL_FRAGMENT_TITLE = "title"
@@ -24,10 +26,7 @@ class ToolFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            title = it.getString(TOOL_FRAGMENT_TITLE)
-            Log.d("berak", title.toString())
-        }
+        title = arguments?.getString(TOOL_FRAGMENT_TITLE)
     }
 
     override fun onAttach(context: Context) {
@@ -58,12 +57,13 @@ class ToolFragment : Fragment() {
     }
 
     companion object {
-        @JvmStatic
-        fun newInstance(title: String) =
-            ToolFragment().apply {
-                arguments = Bundle().apply {
-                    putString(TOOL_FRAGMENT_TITLE, title)
-                }
+        fun newInstance(title: String): ToolFragment {
+            val args = Bundle().apply {
+                putString(TOOL_FRAGMENT_TITLE, title)
             }
+            return ToolFragment().apply {
+                arguments = args;
+            }
+        }
     }
 }

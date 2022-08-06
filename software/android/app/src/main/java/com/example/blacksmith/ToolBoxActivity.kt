@@ -20,10 +20,11 @@ class ToolBoxActivity : AppCompatActivity(), ToolFragment.Callbacks {
         setContentView(R.layout.activity_tool_box)
         val currentFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView)
         if (currentFragment == null) {
-            val fragment = ToolFragment.newInstance("title")
+            val fragment = ToolFragment.newInstance("Concept")
             supportFragmentManager
                 .beginTransaction()
-                .add(R.id.fragmentContainerView, fragment)
+                .replace(R.id.fragmentContainerView, fragment)
+                .addToBackStack(null)
                 .commit()
         }
     }
