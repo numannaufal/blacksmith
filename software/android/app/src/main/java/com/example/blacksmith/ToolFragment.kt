@@ -1,6 +1,8 @@
 package com.example.blacksmith
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,13 +15,29 @@ private const val TOOL_FRAGMENT_TITLE = "title"
 
 
 class ToolFragment : Fragment() {
+    interface Callbacks {
+        fun onDataPassed(title: String)
+    }
+    private var callbacks: Callbacks? = null
+
     private var title: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             title = it.getString(TOOL_FRAGMENT_TITLE)
+            Log.d("berak", title.toString())
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        callbacks = context as Callbacks?
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        callbacks = null
     }
 
     override fun onCreateView(
@@ -32,6 +50,11 @@ class ToolFragment : Fragment() {
         text.setText(title)
         image.setBackgroundResource(R.mipmap.engineer_hat_foreground)
         return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+        callbacks?.onDataPassed("hello from fragment")
     }
 
     companion object {
