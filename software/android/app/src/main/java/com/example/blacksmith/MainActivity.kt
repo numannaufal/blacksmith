@@ -8,6 +8,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Intent(this, AppService::class.java).also { intent ->
+            startService(intent)
+        }
     }
 
     override fun onStart() {
