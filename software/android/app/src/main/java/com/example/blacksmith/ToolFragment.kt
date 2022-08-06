@@ -46,6 +46,7 @@ class ToolFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_tool, container, false)
         val text: TextView = view.findViewById(R.id.toolTextView)
         val image: ImageView = view.findViewById(R.id.toolImageView)
+        title = arguments?.getString(TOOL_FRAGMENT_TITLE)
         text.setText(title)
         image.setBackgroundResource(R.mipmap.engineer_hat_foreground)
         return view
@@ -53,7 +54,9 @@ class ToolFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        callbacks?.onDataPassed("hello from fragment")
+        if (title == null) {
+            callbacks?.onDataPassed("hello from fragment")
+        }
     }
 
     companion object {
