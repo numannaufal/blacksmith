@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Blacksmith</string>
+    <string name="loading">Loading. please wait a moment...</string>
     <string name="upgrade">Upgrade</string>
 </resources>

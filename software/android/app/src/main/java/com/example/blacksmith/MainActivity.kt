@@ -1,46 +1,35 @@
 package com.example.blacksmith
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var textViewTitle: TextView
-    private lateinit var imageViewMascot: ImageView
-    private lateinit var buttonUpgrade: Button
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        buildViews();
-    }
-
-    private fun buildViews() {
         setContentView(R.layout.activity_main)
-        buildTitle()
-        buildImage()
-        buildButton()
     }
 
-    private fun buildTitle() {
-        textViewTitle = findViewById(R.id.title)
-        textViewTitle.setText(R.string.app_name)
-    }
+    override fun onStart() {
+        super.onStart()
 
-    private fun buildImage() {
-        imageViewMascot = findViewById(R.id.mascot)
-        imageViewMascot.visibility = View.VISIBLE
-    }
-
-    private fun buildButton() {
-        buttonUpgrade = findViewById(R.id.button)
-        buttonUpgrade.setText(R.string.upgrade)
-        buttonUpgrade.setOnClickListener {
-            var intent = Intent(this, ToolBoxActivity::class.java)
-            startActivity(intent)
+        val status = AppSingleton.getAppStatus(this)
+        if (status == "started") {
+            AppSingleton.clearAppStatus(this)
+            finish()
+        } else {
+            goToActivity(SplashActivity::class.java)
         }
+    }
+
+    private fun goToActivity(activityClass: Class<SplashActivity>) {
+        var intent = Intent(this, activityClass)
+        startActivity(intent)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        AppSingleton.clearAppStatus(this)
     }
 }
