@@ -63,7 +63,6 @@ class SplashActivity : AppCompatActivity() {
 
     private fun goToActivity(activityClass: Class<HomeActivity>) {
         var intent = Intent(this, activityClass)
-        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent)
         finish()
     }
