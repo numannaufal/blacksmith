@@ -6,6 +6,8 @@ import android.widget.ImageView
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var textViewTitle: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         buildViews();
@@ -13,5 +15,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun buildViews() {
         setContentView(R.layout.activity_main)
+        buildTitle()
+        buildImage()
+    }
+
+    private fun buildTitle() {
+        textViewTitle = findViewById(R.id.textView)
+        textViewTitle.setText(R.string.app_name)
+    }
+
+    private fun buildImage() {
+
     }
 }

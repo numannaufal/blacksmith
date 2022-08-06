@@ -6,22 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="16dp"
         android:paddingRight="16dp" >
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48dp"
+            android:text="TextView"
+            android:textSize="48dp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/mascot"
             tools:layout_editor_absoluteX="141dp"
             tools:layout_editor_absoluteY="168dp"
             tools:srcCompat="@tools:sample/avatars"
-            android:src="@drawable/mascot"
-            android:layout_centerInParent="true"
-            />
+            android:visibility="gone"/>
+
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
