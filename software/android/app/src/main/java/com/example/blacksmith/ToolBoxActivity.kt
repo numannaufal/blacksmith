@@ -27,8 +27,8 @@ class ToolBoxActivity : AppCompatActivity(), ToolFragment.Callbacks {
             .commit()
     }
 
-    override fun onInit(title: String) {
-        // refreshFragment("Concept")
+    override fun onNotified(title: String) {
+        // data from fragment $title
     }
 
 }
