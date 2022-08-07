@@ -3,6 +3,7 @@ package com.example.blacksmith
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -95,7 +96,7 @@ class ToolFragment : Fragment(R.layout.fragment_tool) {
     override fun onStart() {
         super.onStart()
         callbacks?.onNotified("passing data from fragment")
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             toolViewModel.loadData("SAIBARA BLACKSMITH MAN", R.mipmap.engineer_hat_foreground)
         }, 3000)
     }

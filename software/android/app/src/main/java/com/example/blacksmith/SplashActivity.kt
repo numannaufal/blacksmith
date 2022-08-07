@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -48,7 +49,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun opening() {
         buildStatus(R.string.opening)
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             intent.removeExtra("action")
             goToActivity(HomeActivity::class.java)
         }, 3000)
@@ -56,7 +57,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun closing() {
         buildStatus(R.string.closing)
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             finishAffinity()
         }, 3000)
     }
