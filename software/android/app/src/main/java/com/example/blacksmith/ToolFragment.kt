@@ -18,7 +18,7 @@ private const val TOOL_FRAGMENT_TITLE = "title"
 
 class ToolFragment : Fragment() {
     interface Callbacks {
-        fun onDataPassed(title: String)
+        fun onInit(title: String)
     }
     private var callbacks: Callbacks? = null
 
@@ -55,7 +55,7 @@ class ToolFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         if (title == null) {
-            callbacks?.onDataPassed("hello from fragment")
+            callbacks?.onInit("hello from fragment")
         }
     }
 
