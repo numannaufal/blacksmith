@@ -16,7 +16,7 @@ import java.util.*
 private const val TOOL_FRAGMENT_TITLE = "title"
 
 
-class ToolFragment : Fragment() {
+class ToolFragment : Fragment(R.layout.fragment_tool) {
     interface Callbacks {
         fun onInit(title: String)
     }
