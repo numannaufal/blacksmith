@@ -15,15 +15,15 @@ class ToolBoxActivity : AppCompatActivity(), ToolFragment.Callbacks {
     }
 
     private fun buildViews() {
-        refreshFragment("INITIAL")
+        refreshFragment("INITIAL", R.mipmap.engineer_hat_foreground)
     }
 
-    private fun refreshFragment(title: String) {
+    private fun refreshFragment(title: String, imageResourceId: Int) {
         val fragmentManager: FragmentManager = supportFragmentManager;
         fragmentManager
             .beginTransaction()
             .setReorderingAllowed(true)
-            .replace(R.id.fragment_container_view,  ToolFragment.newInstance(title))
+            .replace(R.id.fragment_container_view,  ToolFragment.newInstance(title, imageResourceId))
             .commit()
     }
 
