@@ -20,8 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
  
         let navController = window!.rootViewController as! UINavigationController
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-        navController.pushViewController(vc, animated: true)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        viewController.source = "Splash"
+        navController.pushViewController(viewController, animated: true)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -10,10 +10,13 @@ import UIKit
 class HomeViewController: UIViewController {
     @IBOutlet var home_label: UILabel!
     @IBOutlet var home_button: UIButton!
+    var source: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("home view controller")
+        print("source")
+        print(source)
         if home_label != nil {
             home_label.text = "Home Label"
         }
