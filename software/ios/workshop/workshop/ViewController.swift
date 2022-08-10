@@ -19,6 +19,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clickNextButton(_ sender: UIButton) {
+//        let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: Bundle.main)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "HomeStoryBoard")
+//        self.present(vc, animated: true)
         print("clicked MAN!")
     }
 }
