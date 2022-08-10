@@ -8,9 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet var titleLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleLabel.text = "Blacksmith"
         // Do any additional setup after loading the view.
     }
 
