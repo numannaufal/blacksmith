@@ -10,14 +10,16 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet var title_label: UILabel!
     @IBOutlet var mascot: UIImageView!
+    @IBOutlet var next_button: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title_label.text = "Blacksmith"
         mascot.image = UIImage(named: "Mascot")
-        // Do any additional setup after loading the view.
     }
-
-
+    
+    @IBAction func clickNextButton(_ sender: UIButton) {
+        print("clicked MAN!")
+    }
 }
 
