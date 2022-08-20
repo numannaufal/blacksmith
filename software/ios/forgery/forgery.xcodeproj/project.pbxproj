@@ -19,6 +19,7 @@
 		6FF8E2AF28B0923C004ED406 /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF8E2AE28B0923C004ED406 /* SplashController.swift */; };
 		6FF8E2B128B0950C004ED406 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF8E2B028B0950C004ED406 /* HomeController.swift */; };
 		6FF8E2B328B09A08004ED406 /* ForgeryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF8E2B228B09A08004ED406 /* ForgeryController.swift */; };
+		6FF8E2B528B0B0E7004ED406 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF8E2B428B0B0E7004ED406 /* Tool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		6FF8E2AE28B0923C004ED406 /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
 		6FF8E2B028B0950C004ED406 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		6FF8E2B228B09A08004ED406 /* ForgeryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgeryController.swift; sourceTree = "<group>"; };
+		6FF8E2B428B0B0E7004ED406 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				6FF8E28728B08FD4004ED406 /* Assets.xcassets */,
 				6FF8E28928B08FD4004ED406 /* LaunchScreen.storyboard */,
 				6FF8E28C28B08FD4004ED406 /* Info.plist */,
+				6FF8E2B428B0B0E7004ED406 /* Tool.swift */,
 			);
 			path = forgery;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				6FF8E2AF28B0923C004ED406 /* SplashController.swift in Sources */,
 				6FF8E28328B08FCF004ED406 /* NavigationController.swift in Sources */,
 				6FF8E2B328B09A08004ED406 /* ForgeryController.swift in Sources */,
+				6FF8E2B528B0B0E7004ED406 /* Tool.swift in Sources */,
 				6FF8E27F28B08FCF004ED406 /* AppDelegate.swift in Sources */,
 				6FF8E28128B08FCF004ED406 /* SceneDelegate.swift in Sources */,
 				6FF8E2B128B0950C004ED406 /* HomeController.swift in Sources */,
