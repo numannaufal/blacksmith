@@ -11,9 +11,6 @@ class NavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.goToHome()
-        }
     }
     
     func goToHome() {
@@ -35,6 +32,10 @@ class NavigationController: UINavigationController {
     func getController<T>(controllerIdentifier: String, Controller: T) -> UIViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         return storyBoard.instantiateViewController(withIdentifier: controllerIdentifier)
+    }
+    
+    func quit() {
+        exit(0)
     }
 }
 
